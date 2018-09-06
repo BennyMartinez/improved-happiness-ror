@@ -1,0 +1,13 @@
+<h1>My Contact List</h1>
+<% if @contacts.blank? %>
+<p>No contacts to display.</p>
+<% else %>
+    <ul id="contacts">
+        <% @contacts.each do |c| %>
+            <li>
+                <%= link_to c.first_name+''+c.last_name, {:action => 'show', :id => c.id} -%>
+            </li>
+            <% end %>
+    </ul>
+<% end %>
+<p><%= link_to "New Contact", {:action => 'new' } %></p>
